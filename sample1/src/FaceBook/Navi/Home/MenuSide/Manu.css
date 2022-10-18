@@ -2,6 +2,7 @@
     width: 20%;
     height: auto;
     padding-top: 10px;
+    background-color: #f2f3f5;
     box-sizing: border-box;
 }
 
@@ -17,14 +18,16 @@
     box-sizing: border-box;
 }
 
+
 .manu-flex img{
-    height: 40px;
+    height: 30px;
+    padding-top: 3px;
 }
 
 .manu-flex h1{
     font-family: sans-serif;
-    font-size: 16px;
-    padding-top: 3px;
+    font-size: 15px;
+    /* padding-top: 3px; */
     margin-left: 5px;
     /* padding-right: 10px; */
     color: #646161;
