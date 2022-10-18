@@ -1,0 +1,39 @@
+.manu{
+    width: 20%;
+    height: auto;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.manu-flex{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: 0.5s;
+    box-sizing: border-box;
+}
+
+.manu-flex img{
+    height: 40px;
+}
+
+.manu-flex h1{
+    font-family: sans-serif;
+    font-size: 16px;
+    padding-top: 3px;
+    margin-left: 5px;
+    /* padding-right: 10px; */
+    color: #646161;
+
+}
+
+.manu-flex:hover{
+    /* border: solid 1px red; */
+    background-color: #cccccc;
+    border-radius: 10px;
+    cursor: pointer;
+}

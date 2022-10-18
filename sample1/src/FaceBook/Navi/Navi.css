@@ -1,0 +1,111 @@
+.navi{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 3px black;
+    background-color: white;
+}
+
+.logo{
+    width: 20%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    /* box-shadow: 0px 0px 3px black; */
+    background-color: white;
+}
+
+.navi img{
+height: 50px;
+}
+
+.navi input{
+    /* border: solid 1px blue; */
+    border-radius: 7px;
+    background-color: #f2f3f5;
+    margin-top: 7px;
+    font-family: sans-serif;
+    font-size: 18px;
+    /* padding: 5px; */
+    color: blue;
+    border: none;
+    padding: 10px;
+}
+
+.navi input:focus{
+    outline: none;
+}
+
+.navi-bar{
+    width: 45%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.navi-bar ul{
+    display: flex;
+}
+
+.navi-bar ul li{
+    list-style: none;
+    margin-left: 70px;
+}
+
+.navi-bar ul li a{
+    text-decoration: none;
+    cursor: pointer;
+    filter: grayscale(1);
+}
+
+.navi-bar img{
+    width: 30px;
+    height: 30px;
+}
+
+.navi-manu{
+    width: 28%;
+    height: auto;
+    display: flex;
+
+}
+
+.navi-manu input{
+    width: 120px;
+    height: 25px;
+    font-family: sans-serif;
+    font-size: 18px;
+    border: none;
+    background-color: #f2f3f5;
+    border-radius: 15px;
+    /* text-align: center; */
+}
+
+.navi-manu a{
+    text-decoration: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.navi-manu a img{
+    width: 30px;
+    height: 30px;
+    /* border: solid 1px red; */
+    background-color: #f2f3f5;
+    border-radius: 30px;
+    padding: 10px;
+    -top: 3px;
+}
+
+.navi-menu-profile{
+    width: 40px;
+    height: 40px;
+    /* border: solid 1px red; */
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+
+
+
+
