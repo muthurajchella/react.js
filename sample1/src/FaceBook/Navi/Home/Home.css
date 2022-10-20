@@ -1,6 +1,27 @@
 .home{
     width: 100%;
     height: auto;
+    display: flex;
     background-color: #f2f3f5;
+    padding-top: 10px;
     /* overflow: hidden; */
+}
+
+.manuMain{
+    width: 20%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.newsMain{
+    width: 50%;
+    height: auto;
+    margin-left: 5%;
+    box-sizing: border-box;
+}
+
+.chatMain{
+    width: 20%;
+    height: auto;
+    box-sizing: border-box;
 }
