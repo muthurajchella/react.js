@@ -1,0 +1,39 @@
+.home{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: cursive;
+    font-size: 30px;
+    color: blue;
+    cursor: pointer;
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+}
+
+Link{
+    text-decoration: none;
+}
+
+.Btns{
+    width: 100%;
+    height: auto;
+    background-color: purple;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Btns button{
+    /* border: solid 1 px white; */
+    box-shadow: 0px 0px 5px rgb(241, 172, 172);
+    color: purple;
+    background-color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}

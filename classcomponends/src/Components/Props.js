@@ -1,8 +1,6 @@
 // Props is defind as One component Data used to another component To pass props Props = Properties
 // parant import child
 //Props is immutable
-
-import { render } from '@testing-library/react'
 import React, { Component } from 'react'
 
 
@@ -28,7 +26,7 @@ class First extends Component{
         return(
         <div>
           {this.props.name}
-          <button onClick={() => this.props.get("Raja")}>Click</button>
+         
             <Second />
         </div>
 
@@ -37,9 +35,15 @@ class First extends Component{
 }
 
 export class Props extends Component {
+    constructor(){
+        super()
+        console.log("Cons",this)
+        this.getData = this.getData.bind(this);
+    }
 
-    getData =(data) => {
-        console.log(data)
+
+    getData()  {
+        console.log(this)
     }
 
   render() {
@@ -47,7 +51,8 @@ export class Props extends Component {
     return (
       <div>{this.props.name}
       {this.props.age}
-         <First name= {this.props.name} get={this.getData}/>
+      <button onClick={() => this.getData}>Click</button>
+         <First name= {this.props.name} get={this.getData} />
         {/* <Samplefun /> */}
       </div>
     )

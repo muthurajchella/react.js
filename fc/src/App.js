@@ -1,12 +1,27 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import FunC from './Components/FunC';
 import Props from './Components/Props';
+import Profile from './RouterMethod/Profile';
+import About from './RouterMethod/About';
+import Home from './RouterMethod/Home'
+import Resume from './RouterMethod/Resume';
+import RajuProfile from './RouterMethod/RajuProfile'
 
 function App() {
   return (
     <div className="App">
-     <FunC />
-     <Props name= "Muthuraj" age={25}/>     
+     {/* <FunC />
+     <Props name= "Muthuraj" age={25}/>   */}
+     <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="Profile" element={<Profile />}></Route>
+          <Route path="About" element={<About />}></Route>
+          <Route path="Resume" element={<Resume />}></Route>
+          <Route path="RajuProfile" element={<RajuProfile />}></Route>
+        </Routes>
+     </BrowserRouter>   
     </div>
   );
 }

@@ -1,11 +1,6 @@
-import { render } from '@testing-library/react'
 import React, { Component } from 'react'
 
 
-
-function Samplefun(){
-    return<div>function</div>
-}
 
 class Second extends Component{
     render(){                       //16.8.0 version before CC vs Fc meager diff 
@@ -35,7 +30,6 @@ export class Class extends Component {
     return (
       <div>
         Class Components <First />
-        <Samplefun />
       </div>
     )
   }
