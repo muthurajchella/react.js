@@ -6,7 +6,7 @@ class Second extends Component{
     render(){                       //16.8.0 version before CC vs Fc meager diff 
          return(
         <div>
-           Second Class Components
+           Second Class Components <First />
         </div>
         
         )
@@ -18,7 +18,7 @@ class First extends Component{
         return(
         <div>
             First Class Components
-            <Second />
+          
         </div>
 
         )
@@ -29,7 +29,7 @@ export class Class extends Component {
   render() {
     return (
       <div>
-        Class Components <First />
+        Class Components <Second />
       </div>
     )
   }

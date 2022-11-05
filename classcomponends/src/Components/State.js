@@ -1,3 +1,6 @@
+//React component shas a built-in state object
+//it's mutable
+
 
 import React, { Component } from 'react'
 
@@ -15,42 +18,41 @@ import React, { Component } from 'react'
 //     }
 // }
 
-class First extends Component{
-    render(){
-        console.log("first", this.props)
-        return(
-        <div>
+// class First extends Component{
+//     render(){
+//         console.log("first", this.props)
+//         return(
+//         <div>
 
            
-        </div>
+//         </div>
 
-        )
-    }
-}
+//         )
+//     }
+// }
 
 export class State extends Component {
     constructor(){
         super()
         console.log("cons", this)
         this.state ={
-            name : "Muthu",
-            age : 25,
+            education : "B.E",
         }
     }
 
 
-    updateName  = (val) =>{
-        this.setState({name: val, age: 26 })
+    updateEdudaction  = (val) =>{
+        this.setState({education: val, precentage: "80%"})
     }
 
   render() {
     console.log(this)
     return (
       <div>
-        {this.state.name}
-        {this.state.age}
-        <button onClick={() => this.updateName("RAJ")}>Update Name</button>
-        <First name={this.state.name}/>
+        {this.state.education} {"  "}
+        {this.state.precentage}
+        <button onClick={() => this.updateEdudaction("Mechanical")}>Update Education</button>
+        {/* <First name={this.state.name}/> */}
       </div>
     )
   }

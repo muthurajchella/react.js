@@ -1,18 +1,19 @@
 .home{
-    background-color: aliceblue;
+    background-color: rgb(250, 125, 223);
+    color: red;
     display: flex;
     justify-content: space-evenly;
     font-family: cursive;
     font-size: 30px;
-    color: blue;
     cursor: pointer;
     padding-top: 20px;
     padding-bottom: 20px;
    
 }
 
-Link{
+.home Link{
     text-decoration: none;
+    color: red;
 }
 
 .Btns{

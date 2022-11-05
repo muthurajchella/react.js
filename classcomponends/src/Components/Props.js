@@ -1,4 +1,4 @@
-// Props is defind as One component Data used to another component To pass props Props = Properties
+// Props is  One component Data used to another component To pass  Props = Properties
 // parant import child
 //Props is immutable
 import React, { Component } from 'react'
@@ -9,30 +9,30 @@ import React, { Component } from 'react'
 //     return<div>function</div>
 // }
 
-class Second extends Component{
-    render(){                       
-         return(
-        <div>
+// class Second extends Component{
+//     render(){                       
+//          return(
+//         <div>
            
-        </div>
+//         </div>
         
-        )
-    }
-}
+//         )
+//     }
+// }
 
-class First extends Component{
-    render(){
-        console.log("first", this)
-        return(
-        <div>
-          {this.props.name}
+// class First extends Component{
+//     render(){
+//         console.log("first", this)
+//         return(
+//         <div>
+//           {this.props.name}
          
-            <Second />
-        </div>
+//             <Second />
+//         </div>
 
-        )
-    }
-}
+//         )
+//     }
+// }
 
 export class Props extends Component {
     constructor(){
@@ -48,14 +48,15 @@ export class Props extends Component {
 
   render() {
     console.log(this)
-    return (
-      <div>{this.props.name}
-      {this.props.age}
-      <button onClick={() => this.getData}>Click</button>
-         <First name= {this.props.name} get={this.getData} />
-        {/* <Samplefun /> */}
-      </div>
-    )
+      return (
+        <div>
+            {this.props.name} {"  "}
+            {this.props.age}
+            <button onClick={() => this.getData}>Click</button>
+            {/* <First name= {this.props.name} get={this.getData} /> */}
+            {/* <Samplefun /> */}
+        </div>
+      )
   }
 }
 

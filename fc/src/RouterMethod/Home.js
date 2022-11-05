@@ -13,7 +13,7 @@ const Home = () => {
     };
 
     const getProfile = () => {
-      NavicateProfile("Profile");
+      NavicateProfile("Profile/007");
     };
 
     const getHome = () => {
@@ -26,7 +26,7 @@ const Home = () => {
     <div>
      <div className='home'>
       <div><Link to="Home">HOME</Link></div>
-      <div><Link to="/Profile">PROFILE</Link></div>
+      <div><Link to="/Profile/007">PROFILE</Link></div>
       <div><Link to="/About">ABOUT</Link></div>
     </div>
     <div className='Btns'>
