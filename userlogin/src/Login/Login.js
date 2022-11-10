@@ -39,7 +39,7 @@ const Login = () => {
     setError('');
 
     User.find((item) =>{
-      if(item.id === input && item.password ===password){
+      if(item.id === input && item.password === password){
         NavigateHome("/Home");
       }
       setError("Invalid userId or Password");
@@ -65,7 +65,7 @@ const Login = () => {
           </div>
         </nav>
         <div className='login-con'> 
-        <h1>Login</h1>
+        <h1>Login</h1>t
           <form>
             <input type="text" name="userId" placeholder='User Id' onChange={handleChange}></input><br></br><br></br>
             <input type="password" name="password" placeholder='Password' onChange={handleChange}></input><br></br><br></br>

@@ -40,3 +40,18 @@
     padding-top: 1rem;
 }
 
+.createTask{
+    width: 300px;
+    height: 100px;
+    /* margin: auto; */
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    text-align: center;
+    font-family: cursive;
+    font-size: 25px;
+    box-shadow: 0px 0px 3px rgb(221, 214, 214);
+    color: lightcoral;
+    line: block;
+
+}

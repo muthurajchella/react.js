@@ -77,5 +77,22 @@
     margin-top: 20px;
 }
 
+.tkhomeicon{
+    width: 50px;
+    height: 50px;
+    transition: 0.5s;
+    /* border: solid 1px white; */
+    /* border-radius: 30px; */
+}
 
+.tkhomeicon img{
+    width: 50px;
+    height: 50px;
+    filter: brightness(100);
+    transition: 0.5s;
+    /* border-radius: 10px; */
+}
 
+.tkhomeicon img:hover{
+    filter: grayscale(1);
+}
