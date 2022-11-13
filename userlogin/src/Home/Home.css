@@ -41,17 +41,50 @@
 }
 
 .createTask{
-    width: 300px;
-    height: 100px;
-    /* margin: auto; */
+    width: 60%;
+    height: auto;
     margin-top: 10px;
     margin-left: 10px;
-    display: flex;
-    text-align: center;
-    font-family: cursive;
-    font-size: 25px;
+    line-height: 2rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
     box-shadow: 0px 0px 3px rgb(221, 214, 214);
-    color: lightcoral;
-    line: block;
+}
 
+
+.createTask h1{
+    font-family: sans-serif;
+    size: 2rem;
+    text-align: center;
+    color: purple;
+}
+
+.createTask h2{
+    font-family: sans-serif;
+    size: 1rem;
+    margin-top: 5px;
+    color: rgb(61, 60, 60);
+}
+
+
+.createTask p{
+    font-family: sans-serif;
+    size: 0.6rem;
+    text-align: right;
+    color: rgb(231, 64, 64);
+    padding-right: 10px;
+}
+
+.createTask span button{
+    padding: 10px;
+    border-radius: 2px;
+    color: skyblue;
+    font-family: sans-serif;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+.createTask span button:hover{
+    background-color: rgb(233, 255, 251);
 }
