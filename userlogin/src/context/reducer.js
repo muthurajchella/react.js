@@ -11,13 +11,27 @@ export const stateReducer = (state, action) => {
                 ...state,
                 task:action.payload
             }
+
+        case "edit":
+            return{
+                task:[...state.task.filter((item) =>item.id !== action.payload.id)]
+            }
+
         case 'deletask':
             return{
             ...state,
-            task: state.task.filter(function(state, action){
-                return state.task !== action.payload
+            task: state.task.filter((item) => {
+                return item.id !== action.payload
             })
             }
+
+        case 'ascending':
+            return{
+                ...state,
+                task:action.payload
+            }
+        
+     
         default: {
             return state
         }

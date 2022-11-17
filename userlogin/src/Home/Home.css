@@ -29,7 +29,10 @@
 
 .home-navi{
     width: 60%;
-    height: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
 }
 
@@ -75,7 +78,7 @@
     padding-right: 10px;
 }
 
-.createTask span button{
+/* .createTask span button{
     padding: 10px;
     border-radius: 2px;
     color: skyblue;
@@ -87,4 +90,4 @@
 
 .createTask span button:hover{
     background-color: rgb(233, 255, 251);
-}
+} */

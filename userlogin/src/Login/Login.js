@@ -65,7 +65,7 @@ const Login = () => {
           </div>
         </nav>
         <div className='login-con'> 
-        <h1>Login</h1>t
+        <h1>Login</h1>
           <form>
             <input type="text" name="userId" placeholder='User Id' onChange={handleChange}></input><br></br><br></br>
             <input type="password" name="password" placeholder='Password' onChange={handleChange}></input><br></br><br></br>

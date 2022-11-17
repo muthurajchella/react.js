@@ -1,14 +1,31 @@
 import React, { useState , useContext} from 'react';
-import {Link} from "react-router-dom";
+import {Link, Navigate, useNavigate, useSearchParams} from "react-router-dom";
 import './TaskList.css';
 import { stateContext } from '../context/stateContext';
+// import { useSearchParams } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import Card from '@mui/material/Card';
 
 const Tasklist = () => {
-const [command, setCommand] = useState("");
-const [message, setMessage] = useState("");
+  const {state, dispatch} = useContext(stateContext);
+  const Navigate = useNavigate();
+  const [Params] = useSearchParams();
+  console.log(Params);
+  const id = parseInt(Params.get("id"));
+  const editId = state.task.findIndex((item) => item.id === id);
+
+const [command, setCommand] = useState( state.task[editId]?.command || "");
+const [message, setMessage] = useState(state.task[editId]?.message || "");
 const [date, setDate] = useState("");
 const [task, addTask] = useState([]);
-const {state, dispatch} = useContext(stateContext);
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 
 const handleChangeCommand = (ev) => {
   console.log(ev);
@@ -24,27 +41,71 @@ const updateDate = (ev) => {
   setDate(ev.target.value)
 }
 
+const handleChangePriorrity = (ev) =>{
+
+}
+
 const  submittedCommand= (ev) =>{
   ev.preventDefault();
+  if(id){
+    const temp = {
+      command,
+      message,
+      date,
+      id:id,
+      complete : false,
+      priorrity: false,
+    }
+    dispatch({type: "editUpdate", payload: temp});
+    console.log(temp);
+    Navigate("/TaskList");
+  }
+  else{
   const temp = {
     command,
     message,
     date,
+    id: state.task.length+1,
+    complete : false,
+    priorrity: false,
   }
-
-dispatch({type: "task", payload: [...state.task, temp]});
+  console.log(temp);
+  dispatch({type: "task", payload: [...state.task, temp]});
+}
 };
 
 
   return ( 
     <div className='taskList'>
+
       <div className='tkhomeicon'><Link to="/Home"><h1><img src='https://icons.iconarchive.com/icons/double-j-design/origami-colored-pencil/256/blue-home-icon.png'></img></h1></Link></div>
+
       <h1>Add Task</h1>
+
       <form>
-        <input type="text" name="commandInput" placeholder='Command' onChange={handleChangeCommand}></input><br></br><br></br>
-        <textarea type="text" row="10" col="50" name='commandDiscripes' placeholder='Message' onChange={handleChangeMessage}></textarea><br></br><br></br>
-        <input type={"date"} name="commandDate" onChange={updateDate}></input><br></br><br></br>
-        <button onClick={(ev) => submittedCommand(ev)}>Submit</button>
+
+          <TextField id="standard-basic" label="" variant="standard" name="commandInput" placeholder='Task Name' onChange={handleChangeCommand}/>
+
+          <br></br><br></br>
+
+          <TextField
+          id="standard-multiline-flexible"
+          label=""
+          multiline
+          maxRows={4}
+          // value={value}
+          // onChange={handleChange}
+          variant="standard" name='commandDiscripes' placeholder='Message' onChange={handleChangeMessage}/>
+          <br></br><br></br>
+
+          <input type={"date"} name="commandDate" onChange={updateDate}></input>
+          <br></br><br></br>
+
+          <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />}  onChange={handleChangePriorrity} />
+            
+          <Button variant="contained" onClick={(ev) => submittedCommand(ev)}>Submit</Button>
+          
+        
       </form>
       {/* {state.task?.map((item, index) => (<p key={index}>{item.command}{" "}{item.message}</p>))} */}
     </div>
