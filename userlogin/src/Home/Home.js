@@ -11,13 +11,18 @@ import Checkbox from '@mui/material/Checkbox';
 const Home = () => {
   const {state, dispatch} = useContext(stateContext);
   const Navigate = useNavigate();
+  const {complete, setComplete} = useState();
+
+  const [search, setSearch] = useState('');
 
 
 
-  const handleComplete = (item, index) => {
-    let temp = [...state.task];
+  const handleComplete = (index) => {
+    let completeTemp = [...state.task];
     
-    console.log(temp);
+    console.log(completeTemp);
+    // completeTemp[index.complete= !item.complete]
+    dispatch(setComplete[completeTemp])
   }
 
   const dataEdit = (id) =>{
@@ -49,6 +54,10 @@ const Home = () => {
     dispatch({type: "ascending" , payload: order2})
   }
 
+  const SearchItems = (e) => {
+    setSearch(e.target.value);
+  }
+
 
   return ( 
     <div className='home'> 
@@ -60,10 +69,10 @@ const Home = () => {
             </div>
             <div className='home-navi'>
                 <div><Link to="/Tasklist"><h1>TaskList</h1></Link></div>
+                {/* <input type="search" placeholder='Search...' onChange={SearchItems}></input> */}
                 <Button variant="contained" onClick={(e) =>Ascending(e)}>Ascending</Button>{" "}
                 <Button variant="contained" onClick={(ev) =>Descending(ev)}>Descending</Button>
                 <Button variant="contained">Fav</Button>
-
             </div>
         </nav> 
         {state.task?.map((item, index) => (<div key={index} className='createTask'>

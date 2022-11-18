@@ -59,6 +59,8 @@ const  submittedCommand= (ev) =>{
     dispatch({type: "editUpdate", payload: temp});
     console.log(temp);
     Navigate("/TaskList");
+    setCommand("");
+    setMessage("")
   }
   else{
   const temp = {
@@ -71,6 +73,8 @@ const  submittedCommand= (ev) =>{
   }
   console.log(temp);
   dispatch({type: "task", payload: [...state.task, temp]});
+  setCommand('');
+  setMessage("")
 }
 };
 
