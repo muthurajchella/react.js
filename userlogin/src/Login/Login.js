@@ -1,14 +1,19 @@
-import React from 'react'
-import "./Login.css"
-import { useState } from "react"
-import User from "../loginJson/input.json"
-import {useNavigate} from 'react-router-dom'
+import React, { useContext } from 'react';
+import "./Login.css";
+import { useState } from "react";
+import User from "../loginJson/input.json";
+import {useNavigate} from 'react-router-dom';
+import { stateContext } from '../context/stateContext';
 
 const Login = () => {
+
   const [input, setInput] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const {state, dispatch} = useContext(stateContext);
   const NavigateHome = useNavigate();
+
+
 
   const handleChange = (ev) => {
     console.log("ev", ev);
@@ -22,7 +27,6 @@ const Login = () => {
     }else{
       setPassword(ev.target.value)
     }
-
   }
 
   // const handleChangePassword = (eve) => {
@@ -38,6 +42,10 @@ const Login = () => {
     }
     setError('');
 
+    dispatch({type:"login", payload: state.isAthenticate});
+
+    sessionStorage.setItem("isLogged",JSON.stringify(true))
+
     User.find((item) =>{
       if(item.id === input && item.password === password){
         NavigateHome("/Home");
@@ -45,7 +53,7 @@ const Login = () => {
       setError("Invalid userId or Password");
     })
 
-    console.log(input, password,);
+    console.log(input, password);
   }
 
   return (

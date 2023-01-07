@@ -1,4 +1,4 @@
-import React, { useState , useContext} from 'react';
+import React, { useState , useContext, useEffect} from 'react';
 import {createSearchParams, Link, Navigate, useNavigate  } from "react-router-dom";
 import './Home.css';
 import { stateContext } from '../context/stateContext';
@@ -9,26 +9,22 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 const Home = () => {
-  const {state, dispatch} = useContext(stateContext);
-  const Navigate = useNavigate();
-  const {complete, setComplete} = useState();
 
+
+  const {state, dispatch} = useContext(stateContext);
+  const navigate = useNavigate();
+  const {comp, setComp} = useState(false);
+  const [searchQry, setSearchQry] = useState("");
+  const [task, setTask] = useState([]);
   const [search, setSearch] = useState('');
 
 
-
-  const handleComplete = (index) => {
-    let completeTemp = [...state.task];
-    
-    console.log(completeTemp);
-    // completeTemp[index.complete= !item.complete]
-    dispatch(setComplete[completeTemp])
-  }
-
   const dataEdit = (id) =>{
-    Navigate({
+    navigate({
       pathname: "/TaskList",
-      search : createSearchParams({id:id}).toString(),
+      search : createSearchParams({
+        id:id
+      }).toString()
 
     })
   }
@@ -58,7 +54,32 @@ const Home = () => {
     setSearch(e.target.value);
   }
 
+  const lockOut = () => {
+    dispatch({type:"lockout", payload: state.isAthenticate});
+  }
 
+  useEffect(() =>{
+    filterBySearchQry();
+  }, [searchQry]);
+
+  useEffect(() => {
+    setTask(state.task)
+  }, [state.task])
+
+  const filterBySearchQry = () => {
+    if(searchQry?.length){
+
+    const results = state?.task?.filter((str) => str.includes(searchQry)
+    );
+
+    setTask(results);
+
+    }else{
+      setTask(state?.task)
+    }
+  }
+
+  
   return ( 
     <div className='home'> 
       {/* <h1>{state.empty}</h1> */}
@@ -69,11 +90,16 @@ const Home = () => {
             </div>
             <div className='home-navi'>
                 <div><Link to="/Tasklist"><h1>TaskList</h1></Link></div>
-                {/* <input type="search" placeholder='Search...' onChange={SearchItems}></input> */}
                 <Button variant="contained" onClick={(e) =>Ascending(e)}>Ascending</Button>{" "}
                 <Button variant="contained" onClick={(ev) =>Descending(ev)}>Descending</Button>
+                <button onClick={() => lockOut()}>LockOut</button>
                 <Button variant="contained">Fav</Button>
+
+
+                <input type="search" placeholder='Search...'  name={"searchQry"} onChange={(ev) => setSearchQry(ev.target.value)}></input>
+
             </div>
+            
         </nav> 
         {state.task?.map((item, index) => (<div key={index} className='createTask'>
             <h1>{item.command}</h1>
@@ -81,15 +107,18 @@ const Home = () => {
             <h2>{item.message}{" "}
               <span>
                 {/* <input type={"checkbox"} checked={item.complete} onChange={handleComplete}></input><label>Complete</label> */}
-                <FormControlLabel control={<Checkbox checked={item.complete} onChange={() => handleComplete(item, index)}/>} label="Complete" />
+                <FormControlLabel control={<Checkbox checked={comp} onChange={() =>setComp(!comp)}/>} label="Complete" />
               </span>
             </h2>
             <p>{item.date}{<br />}</p>
+            <h3>{item.Priorrity?"true":"flase"}</h3>
             <span>
               <Button onClick={() => dataEdit(item.id)}>Edit</Button>
               <Button onClick={() => dataDelete(item.id)}>Delete</Button>
             </span>
-          </div>))}
+          </div>))};
+
+          {state.task?.length === 0 && <h1>no task founded</h1>}
     </div>
   )
 }

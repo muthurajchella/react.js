@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, useNavigate, Link, Navigate} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, useNavigate, Link, Navigate} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Login from './Login/Login';
@@ -17,14 +17,21 @@ function App() {
         <div className="App">
               {/* <Login /> */}
               <BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Login />}></Route>
-                  <Route path="Home" element={<Home />}></Route>
-                  <Route path="TaskList" element={<Tasklist />}></Route>
-                  <Route path='*' element={<Navigate to="/" />}></Route>
-                </Routes>
+              {state.isAthenticate?(
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                    <Route path="TaskList" element={<Tasklist />}></Route>
+                    <Route path='*' element={<Navigate to={"/"} />}></Route>
+              </Routes>):(
+              <Routes>
+                    <Route path="/Login" element={<Login />}></Route>
+                    <Route path='*' element={<Navigate to={"/Login"} />}></Route>
+              </Routes>
+            )
+          }
               </BrowserRouter>
         </div>
+    
     </stateContext.Provider>
     
   );

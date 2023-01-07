@@ -14,14 +14,18 @@ import Card from '@mui/material/Card';
 
 const Tasklist = () => {
   const {state, dispatch} = useContext(stateContext);
+  
   const Navigate = useNavigate();
   const [Params] = useSearchParams();
-  console.log(Params);
+  // console.log(Params);
   const id = parseInt(Params.get("id"));
   const editId = state.task.findIndex((item) => item.id === id);
 
 const [command, setCommand] = useState( state.task[editId]?.command || "");
 const [message, setMessage] = useState(state.task[editId]?.message || "");
+const [Priorrity, setPriorrity] = useState(false);
+const [comp, setComp] = useState(false);
+
 const [date, setDate] = useState("");
 const [task, addTask] = useState([]);
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -41,8 +45,8 @@ const updateDate = (ev) => {
   setDate(ev.target.value)
 }
 
-const handleChangePriorrity = (ev) =>{
-
+const handleChangePriorrity = () =>{
+  setPriorrity = !Priorrity;
 }
 
 const  submittedCommand= (ev) =>{
@@ -53,14 +57,17 @@ const  submittedCommand= (ev) =>{
       message,
       date,
       id:id,
-      complete : false,
-      priorrity: false,
+      complete : comp,
+      Priorrity : Priorrity,
+
     }
     dispatch({type: "editUpdate", payload: temp});
     console.log(temp);
     Navigate("/TaskList");
     setCommand("");
-    setMessage("")
+    setMessage("");
+    setPriorrity("");
+    setComp("");
   }
   else{
   const temp = {
@@ -68,13 +75,15 @@ const  submittedCommand= (ev) =>{
     message,
     date,
     id: state.task.length+1,
-    complete : false,
-    priorrity: false,
+    complete : comp,
+    Priorrity : Priorrity,
   }
   console.log(temp);
   dispatch({type: "task", payload: [...state.task, temp]});
   setCommand('');
-  setMessage("")
+  setMessage("");
+  setPriorrity("");
+  setComp("");
 }
 };
 
@@ -105,7 +114,7 @@ const  submittedCommand= (ev) =>{
           <input type={"date"} name="commandDate" onChange={updateDate}></input>
           <br></br><br></br>
 
-          <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />}  onChange={handleChangePriorrity} />
+          <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} checked={Priorrity} onChange={() => setPriorrity(!Priorrity)}/>
             
           <Button variant="contained" onClick={(ev) => submittedCommand(ev)}>Submit</Button>
           
